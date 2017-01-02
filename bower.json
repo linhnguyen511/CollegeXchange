@@ -1,0 +1,34 @@
+{
+  "name": "CollegeXchange",
+  "description": "Website for college students to buy/sell items",
+  "main": "index.html",
+  "keywords": [
+    "CollegeXchange",
+    "exchange",
+    "college",
+    "buy",
+    "sell",
+    "ecommerce"
+  ],
+  "authors": [
+    "Linh Nguyen"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "bootstrap-social": "^5.1.1",
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "angular-ui-router": "^0.3.2"
+  }
+}
