@@ -11,7 +11,11 @@
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+
     <link href="../styles/mystyle.css" rel="stylesheet">
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,13 +23,14 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
   <body>
     <!-- Create navigation bar ------------------------->
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <!--Create logo/brand----------------------->
             <div class="navbar-header">
-                <a class="navbar-brand" href="/" >College Exchange ...</a>
+                <a class="navbar-brand" href="/" >College Exchange</a>
             </div>
             <!--Create navigation tabs for item categories--->
             <ul class="nav navbar-nav">
@@ -66,10 +71,38 @@
             <!--Create sign-in ------------------------------>
             <ul class="nav navbar-nav navbar-right">
                 <li><a data-toggle="modal" data-target="#loginModal">Sign In</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart </a></li>
+                <li><a href="#!cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart </a></li>
+                <li><a href="#!post"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Post </a></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Create search bar at top of page -->
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-4">
+            <div class="input-group">
+              <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All School <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">University of California, Los Angeles</a></li>
+                    <li><a href="#">Drexel University</a></li>
+                  </ul>
+              </div><!-- /btn-group -->
+              <input type="text" class="form-control" aria-label="...">
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+    </div>
+    <hr>
 
     <!-- Create Login Modal------------------------------->
     <div id="loginModal" class="modal fade" role="dialog">
@@ -99,17 +132,44 @@
         </div>
     </div>
 
+    <br>
   <!-- <div ng-include src="'productlist.html'"></div> -->
-    <ng-view></ng-view>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-route/angular-route.min.js"></script>
-    <script src="..bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="../scripts/app.js"></script>
-    <script src="../scripts/data1.js"></script>
+  <!-- include view from ui-router (app.js) -->
+    <div ui-view></div>
+
+    <!--Create footer of page-------------------------------->
+    <footer>
+      <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <ul>
+                        <li><a href="#"> About</a></li>
+                        <li><a href="#"> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-12 col-sm-3">
+                    <div class="nav navbar-nav" style="padding: 40px 10px;">
+                        <a class="btn btn-social-icon btn-facebook" href="#"><i class="fa fa-facebook" ></i></a>
+                        <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="../bower_components/angular/angular.min.js"></script>
+      <!-- <script src="../bower_components/angular-route/angular-route.min.js"></script> -->
+      <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script src="../scripts/app.js"></script>
+      <script src="../scripts/data1.js"></script>
+      <script src="../scripts/data2.js"></script>
+      <script src="../scripts/cartController.js"></script>
   </body>
 </html>

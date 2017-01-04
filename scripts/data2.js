@@ -1,12 +1,11 @@
-var app= angular.module("CollegeXchangeApp",[]);
-app.controller("contentController",function(){
-  products= [
-      { name:'product title 1',
+app.controller("booksController",function($scope){
+  $scope.products= [
+      { name:'Book 1',
         image:'../images/image1.jpg',
         price:'20.00',
         condition: 'new'
       },
-      { name:'product title 2',
+      { name:'Book 2',
         image:'../images/image1.jpg',
         price:'20.00',
         condition: 'new'
@@ -27,5 +26,4 @@ app.controller("contentController",function(){
         condition: 'new'
       }
   ];
-  this.products =products;
 });

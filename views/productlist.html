@@ -1,15 +1,66 @@
 
+<!-- template for sidebar -->
 <div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-3" ng-repeat="product in products">
-              <div class="thumbnail" >
-                <a href =""><img src="{{product.image}}" alt=""></a>
-                <div class="caption">
-                  <p><a href="#"> {{product.name}} </a></p>
-                  <p>{{product.price | currency}} &nbsp;&nbsp;&nbsp;&nbsp; Condition: {{product.condition}}</p>
-                  <p><a href="#" class="btn btn-primary" role="button">Add to cart</a> <a href="#" class="btn btn-default" role="button">Contact seller</a></p>
-                </div>
-              </div>
+  <div class ="row">
+     <div class = "col-sm-2">
+          <p> <b>Condition </b> </p>
+          <input type="checkbox" name="categories" value="New"> Like New <br>
+          <input type="checkbox" name="categories" value="Used - Like New"> Used - Like New <br>
+          <input type="checkbox" name="categories" value="Used - Good"> Used - Good <br>
+          <input type="checkbox" name="categories" value="Used - Acceptable"> Used - Acceptable <br>
+          <br>
+          <p> <b>Price </b> </p>
+          <input style="width: 50px" type="text" placeholder="min"> &nbsp; <input style="width: 50px" type="text" placeholder="max"><br>
+          <br>
+          <p> <b>Size (for clothing) </b> </p>
+          <input type="checkbox" name="categories" value="X-Small"> X-Small <br>
+          <input type="checkbox" name="categories" value="Small"> Small <br>
+          <input type="checkbox" name="categories" value="Medium"> Medium <br>
+          <input type="checkbox" name="categories" value="Large"> Large <br>
+          <input type="checkbox" name="categories" value="X-Large"> X-Large <br>
+          <input type="checkbox" name="categories" value="XX-Large"> XX-Large <br>
+          <br>
+          <p> <b>Dimension (for furniture)</b> </p>
+          <p> Length: <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p>
+          <p> Width: &nbsp; <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p>
+          <p> Height:&nbsp; <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p>
+    </div>
+
+<!-- template for grid of product list -->
+    <div class="col-sm-10">
+      <!-- create pagination format -->
+      <nav style="text-align:right" aria-label="Page navigation">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+        <!-- create product lists -->
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in products">
+                  <div class="thumbnail" >
+                    <a href =""><img src="{{product.image}}" alt=""></a>
+                    <div class="caption">
+                      <p><a href="#"> {{product.name}} </a></p>
+                      <p>{{product.price | currency}} &nbsp;&nbsp;&nbsp;&nbsp; Condition: {{product.condition}}</p>
+                      <p><a href="#" class="btn btn-primary" role="button">Add to cart</a> <a href="#" class="btn btn-default" role="button">Contact seller</a></p>
+                    </div>
+                  </div>
+            </div>
         </div>
     </div>
+  </div>
 </div>

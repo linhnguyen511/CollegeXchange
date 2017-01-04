@@ -1,5 +1,6 @@
 var http=require ('http');
 var fs=require ('fs');
+var qs = require('querystring');
 var path=require ('path');
 
 var hostname='localhost';
@@ -19,7 +20,7 @@ var server=http.createServer(function(req,res){
         var filePath;
 
         if (path.extname(fileUrl)=='.html'){
-          console.log("file: " + fileUrl);
+          // console.log("file: " + fileUrl);
             filePath=path.resolve('../views' + fileUrl);
             res.writeHead(200,{'Content-Type':'text/html'});
         } else {
@@ -40,9 +41,32 @@ var server=http.createServer(function(req,res){
 
         fs.createReadStream(filePath).pipe(res);
       });
+    }
 
 
-    } else {
+    else if (req.method == 'POST') {
+        var body = '';
+
+        req.on('data', function (data) {
+            body += data;
+
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                req.connection.destroy();
+        });
+
+        req.on('end', function () {
+            var post = qs.parse(body);
+            // use post['blah'], etc.
+            console.log(post);
+            res.writeHead(200);
+            res.end('<h1> Message posted successfully');
+        });
+    }
+
+
+    else {
       res.writeHead(404, {'Content-Type':'text/html'});
       res.end('<h1> Error 404: Content not found');
     }
