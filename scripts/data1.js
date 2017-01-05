@@ -11,7 +11,7 @@ app.controller("contentController",function($scope){
         condition: 'new'
       },
       { name:'product title 3',
-        image:'../images/image1.jpg',
+        image:'../images/image3.jpg',
         price:'20.00',
         condition: 'new'
       },
