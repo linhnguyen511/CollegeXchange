@@ -57,6 +57,7 @@ var server=http.createServer(function(req,res){
         });
 
         req.on('end', function () {
+            // var post = qs.parse(body);
             var post = qs.parse(body);
             // use post['blah'], etc.
             console.log(post);
