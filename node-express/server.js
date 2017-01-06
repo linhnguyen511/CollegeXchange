@@ -1,35 +1,50 @@
 var express = require('express');
 var morgan=require('morgan');
-var bodyParser = require ('body-parser');
+var mongoose=require('mongoose');
+
+var postRouter=require('./models/postRouter');
 
 var hostname='localhost';
-var port = 2000;
+var port = 4000;
 
+//use express framwork
 var app=express();
-
-app.use(morgan('dev'));
-
-//create Router for Express (node JS)
-var expRouter=express.Router();
-expRouter.use(bodyParser.urlencoded());
-expRouter.use(bodyParser.json());
-expRouter.route('/')
-    .post(function(req,res,next){
-          req.on("data",function(chunk){
-
-              console.log(chunk.toString());
-          });
-          res.end('Will add product:' + req.body.title + 'with details:' + req.body.description);
-    console.log('Test --->' + req.body.title);
-  });
-
-app.use('/',expRouter);
-
-
 
 //include files to Express (all files to clients)
 app.use(express.static(__dirname + '/../views'));
 app.use(express.static(__dirname + '/..'));
+
+//connect to Mongodb
+var url='mongodb://localhost:27017/collegeXchange';
+mongoose.connect(url);
+var db=mongoose.connection;
+db.on('error',console.error.bind(console,'connection error:'));
+db.once('open',function(){
+    console.log("Connected to Server");
+});
+
+//log data
+app.use(morgan('dev'));
+
+//include Router to access data
+app.use('/',postRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
 
 //listen to clients
 app.listen(port,hostname,function(){
