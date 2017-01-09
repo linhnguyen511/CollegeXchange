@@ -1,8 +1,9 @@
 var express = require('express');
 var morgan=require('morgan');
 var mongoose=require('mongoose');
+var bodyParser = require ('body-parser');
 
-var postRouter=require('./models/postRouter');
+// var postRouter=require('./models/postRouter');
 
 var hostname='localhost';
 var port = 4000;
@@ -10,9 +11,16 @@ var port = 4000;
 //use express framwork
 var app=express();
 
-//include files to Express (all files to clients)
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+//include static files to Express (all files to clients)
 app.use(express.static(__dirname + '/../views'));
-app.use(express.static(__dirname + '/..'));
+app.use(express.static(__dirname + '/../public'));
+
+//routes
+require('./routes.js')(app);
+
 
 //connect to Mongodb
 var url='mongodb://localhost:27017/collegeXchange';
@@ -23,11 +31,13 @@ db.once('open',function(){
     console.log("Connected to Server");
 });
 
-//log data
-app.use(morgan('dev'));
+// //log data
+// app.use(morgan('dev'));
 
 //include Router to access data
-app.use('/',postRouter);
+// app.use('*',postRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,6 +45,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

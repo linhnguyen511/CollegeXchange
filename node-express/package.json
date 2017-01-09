@@ -35,6 +35,7 @@
     "font-awesome": "^4.7.0",
     "mongoose": "^4.7.6",
     "mongoose-currency": "^0.2.0",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "multer": "^1.2.1"
   }
 }

@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
+    // userPhoto:{
+    //     data: Buffer,
+    //     type: String
+    // },
     title: {
         type: String,
         required: true
@@ -15,7 +19,7 @@ var postSchema = new Schema({
         required: true
     }
 },{
-  timestamp:true
+  timestamps:true
 });
 
 var Posts = mongoose.model('Post',postSchema);
