@@ -2,10 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
-    // userPhoto:{
-    //     data: Buffer,
-    //     type: String
-    // },
+    imagePath:{
+        type: String,      
+    },
     title: {
         type: String,
         required: true

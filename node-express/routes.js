@@ -3,10 +3,10 @@ var multer = require ('multer');
 
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, './uploads');
+    callback(null, '../public/uploads');
   },
   filename: function (req, file, callback) {
-    console.log(file);
+    // console.log(file);
     callback(null, file.fieldname + '-' + Date.now());
   }
 });
@@ -27,6 +27,7 @@ module.exports = function(app) {
 		});
 	});
 
+  // post to server
 	app.post('/api/createpost', function(req, res) {
 		  upload(req, res, function(err) {
 				  if(err) {
@@ -36,45 +37,40 @@ module.exports = function(app) {
 						return;
 				  }
 
+          req.body.imagePath = req.file.filename;
+
 					Posts.create(req.body, function(err,post){
 
 									if (err) throw err;
 									console.log('Post created');
 									var id= post._id;
-
-									res.writeHead(200,{'Content-Type':'text/plain'});
-									res.end ('Added post with id' + id);
-
+                  res.redirect('/');
 							//get and return all the posts after you create another
-							Posts.find(function(err, post) {
-									if (err) throw err;
-									res.json(post);
-							});
+							// Posts.find(function(err, post) {
+							// 		if (err) throw err;
+							// 		res.json(post);
+              //
+							// });
 					});
-
 				  // res.end('Your File Uploaded');
 				  console.log('Photo Uploaded');
 		  });
-
-
-
 	});
 
 
-	//
-	// // delete a todo
-	// app.delete('/api/todos/:todo_id', function(req, res) {
-	// 	Todo.remove({
+	// delete a post
+	// app.delete('/api/post/:post._id', function(req, res) {
+	// 	Posts.remove({
 	// 		_id : req.params.todo_id
-	// 	}, function(err, todo) {
+	// 	}, function(err, post) {
 	// 		if (err)
 	// 			res.send(err);
-	//
+  //
 	// 		// get and return all the todos after you create another
-	// 		Todo.find(function(err, todos) {
+	// 		Posts.find(function(err, post) {
 	// 			if (err)
 	// 				res.send(err)
-	// 			res.json(todos);
+	// 			res.json(post);
 	// 		});
 	// 	});
 	// });
