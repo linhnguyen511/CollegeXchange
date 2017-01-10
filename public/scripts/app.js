@@ -30,7 +30,8 @@ app.config(function($stateProvider,$urlRouterProvider){
       })
       .state ('post', {
             url:'/post',
-            templateUrl:'post.html'
+            templateUrl:'post.html',
+            controller:'categoryCntrl'
 
       })
 

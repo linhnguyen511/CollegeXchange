@@ -3,7 +3,18 @@ var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
     imagePath:{
-        type: String,      
+        type: String,
+    },
+    condition:{
+        type: String,
+        required:true
+    },
+    category:{
+        type: String,
+        required:true
+    },
+    subcategory:{
+        type: String
     },
     title: {
         type: String,

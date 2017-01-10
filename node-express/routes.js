@@ -36,7 +36,7 @@ module.exports = function(app) {
 						throw err;
 						return;
 				  }
-
+          console.log(req.body);
           req.body.imagePath = req.file.filename;
 
 					Posts.create(req.body, function(err,post){
@@ -45,12 +45,6 @@ module.exports = function(app) {
 									console.log('Post created');
 									var id= post._id;
                   res.redirect('/');
-							//get and return all the posts after you create another
-							// Posts.find(function(err, post) {
-							// 		if (err) throw err;
-							// 		res.json(post);
-              //
-							// });
 					});
 				  // res.end('Your File Uploaded');
 				  console.log('Photo Uploaded');

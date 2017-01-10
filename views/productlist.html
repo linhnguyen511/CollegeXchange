@@ -12,7 +12,7 @@
           <p> <b>Price </b> </p>
           <input style="width: 50px" type="text" placeholder="min"> &nbsp; <input style="width: 50px" type="text" placeholder="max"><br>
           <br>
-          <p> <b>Size (for clothing) </b> </p>
+          <p> <b>Size (for apparel) </b> </p>
           <input type="checkbox" name="categories" value="X-Small"> X-Small <br>
           <input type="checkbox" name="categories" value="Small"> Small <br>
           <input type="checkbox" name="categories" value="Medium"> Medium <br>
@@ -55,7 +55,7 @@
                     <a href =""><img src="uploads/{{product.imagePath}}" alt=""></a>
                     <div class="caption">
                       <p><a href="#"> {{product.title}} </a></p>
-                      <p>{{product.price | currency}} &nbsp;&nbsp;&nbsp;&nbsp; Condition: {{product.condition}}</p>
+                      <p>{{product.price | currency}} || {{product.condition}}</p>
                       <p><a href="#" class="btn btn-primary" role="button">Add to cart</a> <a href="#" class="btn btn-default" role="button">Contact seller</a></p>
                     </div>
                   </div>
