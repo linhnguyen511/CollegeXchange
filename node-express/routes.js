@@ -23,9 +23,48 @@ module.exports = function(app) {
 
 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
 			if (err) res.json(err);
-			res.json(post); // return all todos in JSON format
+			res.json(post); // return all posts in JSON format
 		});
 	});
+
+ //get all books
+  app.get('/api/books', function(req, res) {
+		Posts.find({ 'category': 'Books' },function(err, post) {
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err) res.json(err);
+			res.json(post); // return all books in JSON format
+		});
+	});
+
+  //get all furniture
+   app.get('/api/furniture', function(req, res) {
+     Posts.find({ 'category': 'Furniture' },function(err, post) {
+       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+       if (err) res.json(err);
+       res.json(post); // return all books in JSON format
+     });
+   });
+
+   //get all furniture
+    app.get('/api/apparel', function(req, res) {
+      Posts.find({ 'category': 'Apparel' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+  //get all dollarstore items
+   app.get('/api/dollarstores', function(req, res) {
+ 		Posts.find({ 'price':{$lte: 5} },function(err, post) {
+ 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+ 			if (err) res.json(err);
+ 			res.json(post); // return all books in JSON format
+ 		});
+ 	});
+
+
 
   // post to server
 	app.post('/api/createpost', function(req, res) {

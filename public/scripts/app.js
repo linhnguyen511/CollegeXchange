@@ -17,6 +17,16 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'productlist.html',
             controller:'booksController'
       })
+      .state ('furniture', {
+            url:'/furniture',
+            templateUrl:'productlist.html',
+            controller:'furnitureController'
+      })
+      .state ('apparel', {
+            url:'/apparel',
+            templateUrl:'productlist.html',
+            controller:'apparelController'
+      })
       //route for cart
       .state ('cart', {
             url:'/cart',
@@ -26,14 +36,15 @@ app.config(function($stateProvider,$urlRouterProvider){
       //route for dollarstore page
       .state ('dollarstore', {
             url:'/dollarstore',
-            templateUrl:'productlist.html'
+            templateUrl:'productlist.html',
+            controller:'dollarController'
       })
       .state ('post', {
             url:'/post',
             templateUrl:'post.html',
             controller:'categoryCntrl'
-
       })
+
 
 
 });

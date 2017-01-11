@@ -36,8 +36,10 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                 <li><a href="#!books"> Books</a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Apparel<span class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Apparel<span class="caret"></span></a>
                       <ul class="dropdown-menu">
+                          <li><a href="#!apparel">All Apparel</a></li>
+                          <li role="separator" class="divider"><li>
                           <li><a href="#">Top</a></li>
                           <li><a href="#">Bottom</a></li>
                           <li><a href="#">Dress/Jumpsuit</a></li>
@@ -46,14 +48,15 @@
                           <li><a href="#">Accessories</a></li>
                       </ul>
                 </li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Furniture<span class="caret"></span></a>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Furniture<span class="caret"></span></a>
                       <ul class="dropdown-menu">
+                          <li><a href="#!furniture">All Furniture</a></li>
+                          <li role="separator" class="divider"><li>
                           <li><a href="#">Futons/Sofa</a></li>
                           <li><a href="#">Desk/Desk Chairs</a></li>
                           <li><a href="#">Bedroom Furniture</a></li>
                           <li><a href="#">Bookcase/Shelves</a></li>
                           <li><a href="#">Kitchen/Dining Furniture</a></li>
-                          <li role="separator" class="divider"><li>
                           <li><a href="#">Others</a></li>
                       </ul>
                 </li>
@@ -66,7 +69,7 @@
                           <li><a href="#">Others</a></li>
                       </ul>
                 </li>
-                <li><a href="#!dollarstore"> Dollar Store</a></li>
+                <li><a href="#!dollarstore"> 5-Dollar Store</a></li>
             </ul>
             <!--Create sign-in ------------------------------>
             <ul class="nav navbar-nav navbar-right">
@@ -77,32 +80,6 @@
         </div>
     </nav>
 
-    <!-- Create search bar at top of page -->
-    <div class="container">
-      <div class="row">
-          <div class="col-lg-4">
-            <div class="input-group">
-              <div class="input-group-btn">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All School <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">University of California, Los Angeles</a></li>
-                    <li><a href="#">Drexel University</a></li>
-                  </ul>
-              </div><!-- /btn-group -->
-              <input type="text" class="form-control" aria-label="...">
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-          <div class="col-lg-6">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
-                </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
-    </div>
-    <hr>
 
     <!-- Create Login Modal------------------------------->
     <div id="loginModal" class="modal fade" role="dialog">
@@ -168,9 +145,12 @@
       <!-- <script src="../bower_components/angular-route/angular-route.min.js"></script> -->
       <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
       <script src="../scripts/app.js"></script>
-      <script src="../scripts/data1.js"></script>
-      <script src="../scripts/data2.js"></script>
+      <script src="../scripts/contentCtrl.js"></script>
+      <script src="../scripts/booksCtrl.js"></script>
       <script src="../scripts/data3.js"></script>
       <script src="../scripts/categoryCtrl.js"></script>
+      <script src="../scripts/dollarCtrl.js"></script>
+      <script src="../scripts/furnitureCtrl.js"></script>
+      <script src="../scripts/apparelCtrl.js"></script>
   </body>
 </html>
