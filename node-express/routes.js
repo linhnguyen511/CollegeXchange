@@ -45,7 +45,9 @@ module.exports = function(app) {
      });
    });
 
-   //get all furniture
+   // -------------ROUTE FOR APPAREL --------------------------------------------------------
+   //**--------------------------------------------------------------------------------------
+   //get all apparel
     app.get('/api/apparel', function(req, res) {
       Posts.find({ 'category': 'Apparel' },function(err, post) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
@@ -54,6 +56,86 @@ module.exports = function(app) {
         console.log(post);
       });
     });
+
+    //get all apparel - top
+    app.get('/api/top', function(req, res) {
+      Posts.find({ 'subcategory': 'Top' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+    //get all apparel - bottom
+    app.get('/api/bottom', function(req, res) {
+      Posts.find({ 'subcategory': 'Bottom' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+    //get all apparel - dress
+    app.get('/api/dress', function(req, res) {
+      Posts.find({ 'subcategory': 'Dress/Jumpsuit' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+    //get all apparel - dress
+    app.get('/api/coat', function(req, res) {
+      Posts.find({ 'subcategory': 'Coats/Cardigan' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+    //get all apparel - dress
+    app.get('/api/shoes', function(req, res) {
+      Posts.find({ 'subcategory': 'Shoes' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+    //get all apparel - dress
+    app.get('/api/accessories', function(req, res) {
+      Posts.find({ 'subcategory': 'Accessories' },function(err, post) {
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) res.json(err);
+        res.json(post); // return all books in JSON format
+        console.log(post);
+      });
+    });
+
+    //get all school supplies
+     app.get('/api/supplies', function(req, res) {
+       Posts.find({ 'category': 'School Supplies' },function(err, post) {
+         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+         if (err) res.json(err);
+         res.json(post); // return all books in JSON format
+         console.log(post);
+       });
+     });
+
+     //get all school supplies - paper
+      app.get('/api/paper', function(req, res) {
+        Posts.find({ 'subcategory': 'Paper/Notebooks' },function(err, post) {
+          // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+          if (err) res.json(err);
+          res.json(post); // return all books in JSON format
+          console.log(post);
+        });
+      });
 
   //get all dollarstore items
    app.get('/api/dollarstores', function(req, res) {
