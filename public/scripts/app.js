@@ -83,10 +83,17 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'productlist.html',
             controller:'dollarController'
       })
+
       .state ('post', {
             url:'/post',
             templateUrl:'post.html',
             controller:'categoryCntrl'
+      })
+      .state ('signup', {
+            url:'/signup',
+            templateUrl:'signup.html',
+            controller: 'stageController'
+
       })
 
 

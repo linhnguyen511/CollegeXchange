@@ -4,7 +4,7 @@ app.controller("apparelController",function($scope,$http){
     $http.get('/api/apparel')
       .then(function(data){
           $scope.products = data.data;
-          console.log(data.data);
+          // console.log(data.data);
       });
 
 });

@@ -1,7 +1,8 @@
 <!--Search Bar ---------------------------------->
 <div class ="container">
   <div class="col-sm-8">
-    <div class="input-group" id="search">
+    <!-- <form action="/api/search" method="get"> -->
+    <div class="input-group">
         <div class="input-group-btn">
             <button type="button" class="btn btn-search btn-default dropdown-toggle" data-toggle="dropdown"><span class="label-icon" id="school">All School</span><span class="caret"></span></button>
             <ul class="dropdown-menu pull-left" role="menu">
@@ -9,11 +10,12 @@
                <li><a href="#"><span class="label-icon">Search By Organization</span></a></li>
             </ul>
         </div>
-        <input type="text" class="form-control">
+        <input type="text" name="searchkey" class="form-control">
         <div class="input-group-btn">
             <button type="button" class="btn btn-search btn-default"><span class="glyphicon glyphicon-search"></span></button>
         </div>
     </div>
+  <!-- </form> -->
   </div>
 </div>
 

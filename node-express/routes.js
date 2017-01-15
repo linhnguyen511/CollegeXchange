@@ -11,7 +11,7 @@ var storage = multer.diskStorage({
   }
 });
 var upload = multer({storage: storage}).single('userPhoto');
-
+// var Verify = require('./verify');
 
 module.exports = function(app) {
 
@@ -53,7 +53,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -63,7 +62,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -73,7 +71,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -83,7 +80,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -93,7 +89,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -103,7 +98,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -113,7 +107,6 @@ module.exports = function(app) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) res.json(err);
         res.json(post); // return all books in JSON format
-        console.log(post);
       });
     });
 
@@ -123,7 +116,6 @@ module.exports = function(app) {
          // if there is an error retrieving, send the error. nothing after res.send(err) will execute
          if (err) res.json(err);
          res.json(post); // return all books in JSON format
-         console.log(post);
        });
      });
 
@@ -133,7 +125,6 @@ module.exports = function(app) {
           // if there is an error retrieving, send the error. nothing after res.send(err) will execute
           if (err) res.json(err);
           res.json(post); // return all books in JSON format
-          console.log(post);
         });
       });
 
@@ -146,29 +137,33 @@ module.exports = function(app) {
  		});
  	});
 
+  //return for search request
+  //  app.get('/api/search', function(req, res) {
+  //    console.log(req.body);
+ // 		Posts.find({ 'price':{$lte: 5} },function(err, post) {
+ // 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+ // 			if (err) res.json(err);
+ // 			res.json(post); // return all books in JSON format
+ // 		});
+ // 	});
 
 
-  // post to server
+  // post new item to server
 	app.post('/api/createpost', function(req, res) {
 		  upload(req, res, function(err) {
 				  if(err) {
-				    console.log('Error Occured');
 				    res.end('Upload fail');
 						throw err;
 						return;
 				  }
-          console.log(req.body);
           req.body.imagePath = req.file.filename;
 
 					Posts.create(req.body, function(err,post){
 
 									if (err) throw err;
-									console.log('Post created');
 									var id= post._id;
                   res.redirect('/');
 					});
-				  // res.end('Your File Uploaded');
-				  console.log('Photo Uploaded');
 		  });
 	});
 

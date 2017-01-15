@@ -91,20 +91,22 @@
                     <h4 class="modal-title">Login</h4>
                 </div>
                 <div class="modal-body">
-                      <form class="form-inline">
+                      <form class="form-inline" action='/api/login' method="post">
                           <div class="form-group">
                               <label class="sr-only" for="email">Email address</label>
-                              <input type="email" class="form-control" id="email" placeholder="Email">
+                              <input type="email" name="username" class="form-control" id="email" placeholder="Email">
                           </div>
                           <div class="form-group">
                               <label class="sr-only" for="password">Password</label>
-                              <input type="password" class="form-control" id="password" placeholder="Password">
+                              <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                           </div>
                           <div class="checkbox">
                               <label><input type="checkbox"> Remember me</label>
                           </div>
                           <button type="submit" class="btn btn-primary btn-default">Sign in</button>
                       </form>
+                      <br>
+                    <p>Don't have an account? <a href='#!signup'> Sign up now. </a></p>
                 </div>
             </div>
         </div>
@@ -147,6 +149,9 @@
       <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
       <script src="../scripts/app.js"></script>
       <script src="../scripts/contentCtrl.js"></script>
+
+      <!-- Need edit to make one file/controller only ------------------------>
+      <!---------------------------------------------------------------------->
       <script src="../scripts/booksCtrl.js"></script>
       <script src="../scripts/data3.js"></script>
       <script src="../scripts/categoryCtrl.js"></script>
@@ -161,6 +166,9 @@
       <script src="../scripts/coatCtrl.js"></script>
       <script src="../scripts/shoesCtrl.js"></script>
       <script src="../scripts/accessoriesCtrl.js"></script>
-      <script src="../scripts/schooldropdown.js"></script>
+      <!-- <script src="../scripts/schooldropdown.js"></script> -->
+
+
+      <script src="../scripts/stageCtrl.js"></script>
   </body>
 </html>
