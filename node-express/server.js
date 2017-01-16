@@ -11,7 +11,7 @@ var config = require('./config');
 
 // var postRouter=require('./models/postRouter');
 
-var hostname='localhost';
+var hostname='172.31.5.17';
 var port = 3000;
 
 //use express framwork
