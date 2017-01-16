@@ -11,66 +11,19 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'productlist.html',
             controller:'contentController'
       })
-      //route for books page
-      .state ('books', {
-            url:'/books',
+      //route for category page
+      .state ('items', {
+            url:'/items/:type',
             templateUrl:'productlist.html',
-            controller:'booksController'
+            controller:'itemsController'
+      })
+      //route for subcategory page
+      .state ('subcategory', {
+            url:'/subcategory/:type',
+            templateUrl:'productlist.html',
+            controller:'subcategoryController'
       })
 
-      //--------FURNITURE ------------------------------------
-      .state ('furniture', {
-            url:'/furniture',
-            templateUrl:'productlist.html',
-            controller:'furnitureController'
-      })
-      .state ('apparel', {
-            url:'/apparel',
-            templateUrl:'productlist.html',
-            controller:'apparelController'
-      })
-      .state ('top', {
-            url:'/top',
-            templateUrl:'productlist.html',
-            controller:'topController'
-      })
-      .state ('bottom', {
-            url:'/bottom',
-            templateUrl:'productlist.html',
-            controller:'bottomController'
-      })
-      .state ('dress', {
-            url:'/dress',
-            templateUrl:'productlist.html',
-            controller:'dressController'
-      })
-      .state ('coat', {
-            url:'/coat',
-            templateUrl:'productlist.html',
-            controller:'coatController'
-      })
-      .state ('shoes', {
-            url:'/shoes',
-            templateUrl:'productlist.html',
-            controller:'shoesController'
-      })
-      .state ('accessories', {
-            url:'/accessories',
-            templateUrl:'productlist.html',
-            controller:'accessoriesController'
-      })
-
-      //---------SUPPLIES ------------------------------------------
-      .state ('supplies', {
-            url:'/supplies',
-            templateUrl:'productlist.html',
-            controller:'suppliesController'
-      })
-      .state ('paper', {
-            url:'/paper',
-            templateUrl:'productlist.html',
-            controller:'paperController'
-      })
       //route for cart
       .state ('cart', {
             url:'/cart',
