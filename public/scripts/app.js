@@ -48,7 +48,10 @@ app.config(function($stateProvider,$urlRouterProvider){
             controller: 'stageController'
 
       })
-
-
+      .state ('singleitem', {
+            url:'/singleitem/:type',
+            templateUrl:'singleItem.html',
+            controller:'singleItemCtrl'
+      })
 
 });

@@ -6,3 +6,22 @@
 }*/
 /*.schooldropdown {height: 33px;};*/
 .navbar {margin-bottom: 0};
+
+.container {
+    height: 300px;
+    width: 300px;
+    background-color: red;
+    float: left;
+    overflow: hidden;
+    margin: 20px;
+}
+.container img {
+    display: block;
+}
+
+.portrait img {
+    width: 100%;
+}
+.landscape img {
+    height: 100%;
+}

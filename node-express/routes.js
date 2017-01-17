@@ -56,6 +56,16 @@ module.exports = function(app) {
  		});
  	});
 
+  //get individual product
+   app.get('/api/singleitem', function(req, res) {
+     console.log(req.query);
+     Posts.find({ '_id': req.query.type },function(err, post) {
+       // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+       if (err) res.json(err);
+       res.json(post); // return all books in JSON format
+     });
+   });
+
   //return for search request
   //  app.get('/api/search', function(req, res) {
   //    console.log(req.body);

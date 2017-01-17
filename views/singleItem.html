@@ -1,0 +1,18 @@
+<!--To render html for each item posted on website ------------>
+<div class="container portrait">
+  <div class="col-sm-4">
+    <img src="uploads/{{singleitem.imagePath}}" alt="">
+  </div>
+
+  <div class="col-sm-8">
+    <h3> {{singleitem.title}} </h3>
+    <p><i> Date Posted: {{singleitem.createdAt | date:"MM/dd/yyyy 'at' h:mma"}} </i></p>
+    <br>
+    <p><b>Category: </b>{{singleitem.category}} || {{singleitem.subcategory}}</p>
+    <p><b>Price: </b>{{singleitem.price | currency}} || <b>Condition: </b>{{singleitem.condition}}</p>
+    <p><b> Description: </b>{{singleitem.description}}</p>
+    <br>
+    <p><a href="#" class="btn btn-primary" role="button">Add to cart</a> <a href="#" class="btn btn-default" role="button">Contact seller</a></p>
+  </div>
+
+</div>

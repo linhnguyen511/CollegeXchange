@@ -7,7 +7,6 @@
             <button type="button" class="btn btn-search btn-default dropdown-toggle" data-toggle="dropdown"><span class="label-icon" id="school">All School</span><span class="caret"></span></button>
             <ul class="dropdown-menu pull-left" role="menu">
                <li><a href="#"><span class="label-icon">University of California, Los Angeles</span></a></li>
-               <li><a href="#"><span class="label-icon">Search By Organization</span></a></li>
             </ul>
         </div>
         <input type="text" name="searchkey" class="form-control">
@@ -74,9 +73,9 @@
         <div class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in products">
                   <div class="thumbnail" >
-                    <a href =""><img src="uploads/{{product.imagePath}}" alt=""></a>
+                    <a href ="#!singleitem/{{product._id}}"><img src="uploads/{{product.imagePath}}" alt=""></a>
                     <div class="caption">
-                      <p><a href="#"> {{product.title}} </a></p>
+                      <p><a href="#!singleitem/{{product._id}}"> {{product.title}} </a></p>
                       <p>{{product.price | currency}} || {{product.condition}}</p>
                       <p><a href="#" class="btn btn-primary" role="button">Add to cart</a> <a href="#" class="btn btn-default" role="button">Contact seller</a></p>
                     </div>
