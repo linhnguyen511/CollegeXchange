@@ -67,14 +67,14 @@ module.exports = function(app) {
    });
 
   //return for search request
-  //  app.get('/api/search', function(req, res) {
-  //    console.log(req.body);
- // 		Posts.find({ 'price':{$lte: 5} },function(err, post) {
- // 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
- // 			if (err) res.json(err);
- // 			res.json(post); // return all books in JSON format
- // 		});
- // 	});
+   app.get('/api/search', function(req, res) {
+     console.log(req.query.type);
+ 		Posts.find({ 'title':{'$regex' : req.query.type , "$options": "i"}},function(err, post) {
+ 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+ 			if (err) res.json(err);
+ 			res.json(post); // return all books in JSON format
+ 		});
+ 	});
 
 
   // post new item to server

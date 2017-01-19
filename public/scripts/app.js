@@ -53,5 +53,10 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'singleItem.html',
             controller:'singleItemCtrl'
       })
+      .state ('search', {
+            url:'/search/:keyword',
+            templateUrl:'productlist.html',
+            controller:'searchController'
+      })
 
 });
