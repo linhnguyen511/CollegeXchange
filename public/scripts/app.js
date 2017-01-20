@@ -58,5 +58,10 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'productlist.html',
             controller:'searchController'
       })
+      .state ('sidebar', {
+            url:'/sidebar/:type',
+            templateUrl:'productlist.html',
+            controller:'sidebarController'
+      })
 
 });

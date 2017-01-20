@@ -20,20 +20,20 @@
 <br>
 
 <!-- template for sidebar -->
-<div class="container">
+<div class="container" ng-controller="sideBarControllerButton">
   <div class ="row">
      <div class = "col-sm-2">
           <br><br><br>
           <p> <b>Condition </b> </p>
-          <input type="checkbox" name="categories" value="New"> Like New <br>
-          <input type="checkbox" name="categories" value="Used - Like New"> Used - Like New <br>
-          <input type="checkbox" name="categories" value="Used - Good"> Used - Good <br>
+          <input type="checkbox" id="cb1" ng-model="check" ng-change="change(check)" ng-true-value="'Like New'"> Like New <br>
+          <input type="checkbox" id="cb2" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Like New'"> Used - Like New <br>
+          <input type="checkbox" id="cb3" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Good'"> Used - Good <br>
           <input type="checkbox" name="categories" value="Used - Acceptable"> Used - Acceptable <br>
           <br>
           <p> <b>Price </b> </p>
           <input style="width: 50px" type="text" placeholder="min"> &nbsp; <input style="width: 50px" type="text" placeholder="max"><br>
           <br>
-          <p> <b>Size (for apparel) </b> </p>
+          <!-- <p> <b>Size (for apparel) </b> </p>
           <input type="checkbox" name="categories" value="X-Small"> X-Small <br>
           <input type="checkbox" name="categories" value="Small"> Small <br>
           <input type="checkbox" name="categories" value="Medium"> Medium <br>
@@ -44,7 +44,7 @@
           <p> <b>Dimension (for furniture)</b> </p>
           <p> Length: <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p>
           <p> Width: &nbsp; <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p>
-          <p> Height:&nbsp; <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p>
+          <p> Height:&nbsp; <input style="width: 40px" type="text" placeholder="min"> &nbsp; <input style="width: 40px" type="text" placeholder="max"></p> -->
     </div>
 
 <!-- template for grid of product list -->

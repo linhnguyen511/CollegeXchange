@@ -1,14 +1,15 @@
 <!-- template for post -->
 <div class="container">
+<p><i> ( * : required) </i></p>
 <form action="/api/createpost" method="post" enctype="multipart/form-data" id="uploadForm">
   <div class="controls form-inline">
-      <label for="title">Posting Title: &nbsp;&nbsp;</label><input class="form-control" style="width: 850px" type="text" id="title" name="title"> &nbsp;
-      <label for="price">Price: &nbsp;&nbsp;</label>$<input class="form-control" style="width: 100px" type="text" id="price" name="price"></p>
+      <label for="title">Posting Title*: &nbsp;&nbsp;</label><input class="form-control" style="width: 850px" type="text" id="title" name="title"> &nbsp;
+      <label for="price">Price*: &nbsp;&nbsp;</label>$<input class="form-control" style="width: 100px" type="text" id="price" name="price"></p>
   </div>
   <p> <b>Select file(s) to upload: </b></p>
   <input type="file" name="userPhoto"/>
   <br>
-  <label for="condition"> Condition: </label>
+  <label for="condition"> Condition*: </label>
     <select name="condition">
       <option value="">---Please select---</option> <!-- not selected / blank option -->
       <option value="Like New">Like New</option>
@@ -18,15 +19,15 @@
     </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
   <div ng-controller="categoryCntrl">
-            <b>Category: </b><select id="category" name="category" ng-model="subcategories" ng-options="category for (category,subcategory) in categories track by category" ><option value=''>Select</option></select>
+            <b>Category*: </b><select id="category" name="category" ng-model="subcategories" ng-options="category for (category,subcategory) in categories track by category" ><option value=''>Select</option></select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b>Subcategory: </b><select id="subcategory" name="subcategory" ng-disabled="!subcategories" ng-model="subcategory"><option value=''>Select</option> <option ng-repeat="subcategory in subcategories" value='{{subcategory}}'>{{subcategory}}</option></select>
+            <b>Subcategory*: </b><select id="subcategory" name="subcategory" ng-disabled="!subcategories" ng-model="subcategory"><option value=''>Select</option> <option ng-repeat="subcategory in subcategories" value='{{subcategory}}'>{{subcategory}}</option></select>
 
   </div>
 
 
   <br>
-  <p><b>Posting body:</b></p>
+  <p><b>Posting body*:</b></p>
   <textarea class="form-control" name="description" cols="100" rows="12"></textarea>
   <br>
 
