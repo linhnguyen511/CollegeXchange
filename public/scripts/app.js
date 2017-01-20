@@ -2,7 +2,7 @@
 
 var app = angular.module('CollegeXchangeApp',['ui.router']);
 app.config(function($stateProvider,$urlRouterProvider){
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/items');
 
       $stateProvider
       //route for home page
@@ -13,23 +13,28 @@ app.config(function($stateProvider,$urlRouterProvider){
       })
       //route for category page
       .state ('items', {
-            url:'/items/:type',
+            url:'/items/:category/:subcategory/:condition',
             templateUrl:'productlist.html',
-            controller:'itemsController'
+            controller:'itemsController',
+            params: {
+                category: { squash: true, value: null },
+                subcategory: { squash: true, value: null },
+                condition: { squash: true, value: null },
+            }
       })
-      //route for subcategory page
-      .state ('subcategory', {
-            url:'/subcategory/:type',
-            templateUrl:'productlist.html',
-            controller:'subcategoryController'
-      })
+      // //route for subcategory page
+      // .state ('subcategory', {
+      //       url:'/subcategory/:type',
+      //       templateUrl:'productlist.html',
+      //       controller:'subcategoryController'
+      // })
 
       //route for cart
-      .state ('cart', {
-            url:'/cart',
-            templateUrl:'cart.html',
-            controller:'cartController'
-      })
+      // .state ('cart', {
+      //       url:'/cart',
+      //       templateUrl:'cart.html',
+      //       controller:'cartController'
+      // })
       //route for dollarstore page
       .state ('dollarstore', {
             url:'/dollarstore',
@@ -58,10 +63,10 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'productlist.html',
             controller:'searchController'
       })
-      .state ('sidebar', {
-            url:'/sidebar/:type',
-            templateUrl:'productlist.html',
-            controller:'sidebarController'
-      })
+      // .state ('sidebar', {
+      //       url:'/sidebar/:type',
+      //       templateUrl:'productlist.html',
+      //       controller:'sidebarController'
+      // })
 
 });

@@ -1,7 +1,6 @@
 <!--Search Bar ---------------------------------->
 <div class ="container" ng-controller="searchButtonController">
   <div class="col-sm-offset-2 col-sm-8" align="center">
-      <!-- <form class="input-group" action="/api/search" method="get"> -->
         <div class="input-group">
             <div class="input-group-btn" >
                 <button type="button" class="btn btn-search btn-default dropdown-toggle" data-toggle="dropdown"><span class="label-icon" id="school">All School</span><span class="caret"></span></button>
@@ -14,7 +13,6 @@
                 <button type="button" class="btn btn-search btn-default" ng-click="searchFunction(searchkey)"><span class="glyphicon glyphicon-search"></span></button>
             </div>
         </div>
-      <!-- </form> -->
   </div>
 </div>
 <br>
@@ -25,10 +23,10 @@
      <div class = "col-sm-2">
           <br><br><br>
           <p> <b>Condition </b> </p>
-          <input type="checkbox" id="cb1" ng-model="check" ng-change="change(check)" ng-true-value="'Like New'"> Like New <br>
-          <input type="checkbox" id="cb2" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Like New'"> Used - Like New <br>
-          <input type="checkbox" id="cb3" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Good'"> Used - Good <br>
-          <input type="checkbox" name="categories" value="Used - Acceptable"> Used - Acceptable <br>
+          <input type="checkbox" id="cb1" ng-model="check" ng-change="change(check)" ng-true-value="'Like New'" ng-false-value=''> Like New <br>
+          <input type="checkbox" id="cb2" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Like New'" ng-false-value=''> Used - Like New <br>
+          <input type="checkbox" id="cb3" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Good'" ng-false-value=''> Used - Good <br>
+          <input type="checkbox" id="cb4" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Acceptable'" ng-false-value=''> Used - Acceptable <br>
           <br>
           <p> <b>Price </b> </p>
           <input style="width: 50px" type="text" placeholder="min"> &nbsp; <input style="width: 50px" type="text" placeholder="max"><br>

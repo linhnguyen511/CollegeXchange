@@ -1,9 +1,9 @@
-app.controller("itemsController",function($scope, $http, $stateParams){
+app.controller("itemsController",function($scope, $http, $stateParams,$location){
   $scope.products={};
   console.log($stateParams);
+  console.log($location.url());
 
-  // $http({ url: '/api/posts', method: "GET", json: true, headers: { "content-type": "application/json"}})
-  $http.get('/api/items', {params: {type:$stateParams.type}})
+  $http.get('/api/items', {params: $stateParams})
     .then(function(data){
         $scope.products = data.data;
         console.log(data.data);

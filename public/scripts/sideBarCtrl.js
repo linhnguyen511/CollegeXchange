@@ -1,16 +1,17 @@
-app.controller("sideBarControllerButton",function($scope){
+var conditionA = []
+app.controller("sideBarControllerButton",function($scope,$location,$http,$stateParams,$state){
     $scope.change=function(cb){
-          console.log(cb);
-          window.location.href ='#!sidebar/'+ cb;
-    };
-});
+          console.log($stateParams);
+          
+          $stateParams.condition=cb;
 
-app.controller("sidebarController",function($scope,$http,$stateParams){
-    $scope.products={};
-    $http.get('/api/sidebar',{params: {type:$stateParams.type}})
-      .then(function(data){
-          $scope.products = data.data;
-          console.log(data.data);
-    });
-    // $http({ url: '/api/posts', method: "GET", json: true, headers: { "content-type": "application/json"}})
+          //  $state.go('items', $stateParams);
+          // window.location.href = $location.url()+'/'+ cb;
+
+          $http.get('/api/items', {params: $stateParams, condition:cb})
+            .then(function(data){
+                $scope.products = data.data;
+                console.log(data.data);
+          });
+    };
 });
