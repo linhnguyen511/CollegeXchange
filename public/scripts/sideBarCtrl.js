@@ -2,7 +2,7 @@ var conditionA = []
 app.controller("sideBarControllerButton",function($scope,$location,$http,$stateParams,$state){
     $scope.change=function(cb){
           console.log($stateParams);
-          
+
           $stateParams.condition=cb;
 
           //  $state.go('items', $stateParams);
