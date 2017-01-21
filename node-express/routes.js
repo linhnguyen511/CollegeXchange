@@ -27,11 +27,13 @@ module.exports = function(app) {
 		});
 	});
 
+
  //get all category
   app.get('/api/items', function(req, res) {
     console.log(req.query);
-		Posts.find(req.query, function(err, post) {
-			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+    Posts.find(req.query, function(err, post) {
+    // Posts.find({'category': req.query.category, 'subcategory':req.query.subcategory, 'condition':req.query.condition }, function(err, post) {
+			// if there is an error retrieving, send the error
 			if (err) res.json(err);
 			res.json(post); // return all books in JSON format
 		});
@@ -79,14 +81,14 @@ module.exports = function(app) {
 
 
   //return result for sidebar request
-   app.get('/api/sidebar', function(req, res) {
-     console.log(req.query.type);
- 		Posts.find({ 'condition': {$in:req.query.type}}, function(err, post) {
- 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
- 			if (err) res.json(err);
- 			res.json(post); // return all books in JSON format
- 		});
- 	});
+  //  app.get('/api/sidebar', function(req, res) {
+  //    console.log(req.query.type);
+ // 		Posts.find({ 'condition': {$in:req.query.type}}, function(err, post) {
+ // 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+ // 			if (err) res.json(err);
+ // 			res.json(post); // return all books in JSON format
+ // 		});
+ // 	});
 
 
 

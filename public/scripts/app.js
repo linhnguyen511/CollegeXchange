@@ -13,13 +13,15 @@ app.config(function($stateProvider,$urlRouterProvider){
       })
       //route for category page
       .state ('items', {
-            url:'/items/:category/:subcategory/:condition',
+            url:'/items/:category/:subcategory/:condition/:price',
             templateUrl:'productlist.html',
             controller:'itemsController',
             params: {
                 category: { squash: true, value: null },
                 subcategory: { squash: true, value: null },
                 condition: { squash: true, value: null },
+                price: { squash: true, value: null },
+
             }
       })
       // //route for subcategory page
