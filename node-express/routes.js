@@ -79,7 +79,6 @@ module.exports = function(app) {
  	});
 
 
-
   //return result for sidebar request
   //  app.get('/api/sidebar', function(req, res) {
   //    console.log(req.query.type);
@@ -89,11 +88,6 @@ module.exports = function(app) {
  // 			res.json(post); // return all books in JSON format
  // 		});
  // 	});
-
-
-
-
-
 
 
   // post new item to server

@@ -24,19 +24,6 @@ app.config(function($stateProvider,$urlRouterProvider){
 
             }
       })
-      // //route for subcategory page
-      // .state ('subcategory', {
-      //       url:'/subcategory/:type',
-      //       templateUrl:'productlist.html',
-      //       controller:'subcategoryController'
-      // })
-
-      //route for cart
-      // .state ('cart', {
-      //       url:'/cart',
-      //       templateUrl:'cart.html',
-      //       controller:'cartController'
-      // })
       //route for dollarstore page
       .state ('dollarstore', {
             url:'/dollarstore',
@@ -65,10 +52,16 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'productlist.html',
             controller:'searchController'
       })
-      // .state ('sidebar', {
-      //       url:'/sidebar/:type',
-      //       templateUrl:'productlist.html',
-      //       controller:'sidebarController'
-      // })
+      .state ('emailverification', {
+            url:'/emailverification',
+            templateUrl:'emailVerification.html',
+
+      })
+      .state ('privacy', {
+            url:'/privacy',
+            templateUrl:'privacy.html',
+
+      })
+
 
 });

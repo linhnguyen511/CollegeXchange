@@ -1,3 +1,8 @@
+var dotenv = require('dotenv');
+dotenv.load();
+
+var path = require('path');
+var http = require('http');
 var express = require('express');
 var morgan=require('morgan');
 var mongoose=require('mongoose');
@@ -12,8 +17,8 @@ var config = require('./config');
 // var postRouter=require('./models/postRouter');
 
 var hostname='172.31.5.17';
-// var hostname='localhost';
-var port = 3000;
+var hostname='localhost';
+// var port = 3000;
 
 //use express framwork
 var app=express();
@@ -24,11 +29,16 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+// app.use(session());
+// app.use(methodOverride());
+
 
 // passport config
 var User = require('./models/userSchema');
+passport.use(User.createStrategy());
 app.use(passport.initialize());
-passport.use(new LocalStrategy(User.authenticate()));
+app.use(passport.session());
+// passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
