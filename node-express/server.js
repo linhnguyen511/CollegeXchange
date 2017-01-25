@@ -1,5 +1,5 @@
-var dotenv = require('dotenv');
-dotenv.load();
+// var dotenv = require('dotenv');
+// dotenv.load();
 
 var path = require('path');
 var http = require('http');
