@@ -22,10 +22,14 @@ module.exports = function(app) {
                 }
 
                 //create URL for confirmation email
-                var authenticationURL = 'http://localhost:3000/#!/verify/' + user.authToken;
+                // var authenticationURL = 'http://localhost:3000/#!/verify/' + user.authToken;
+                var authenticationURL = 'http://dormshop.net/#!/verify/' + user.authToken;
 
                 //send emails to user for verification
-                const nodemailer = require('@nodemailer/pro');
+                // const nodemailer = require('@nodemailer/pro');
+                var nodemailer = require('nodemailer');
+                var smtpTransport = require('nodemailer-smtp-transport');
+
                 // create reusable transporter object using the default SMTP transport
                 let transporter = nodemailer.createTransport({
                     service: 'gmail',
