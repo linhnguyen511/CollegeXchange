@@ -39,15 +39,6 @@ module.exports = function(app) {
 		});
 	});
 
-  // //get all subcategory
-  // app.get('/api/subcategory', function(req, res) {
-  //   console.log(req.query);
-	// 	Posts.find({ 'subcategory': req.query.type },function(err, post) {
-	// 		// if there is an error retrieving, send the error. nothing after res.send(err) will execute
-	// 		if (err) res.json(err);
-	// 		res.json(post); // return all books in JSON format
-	// 	});
-	// });
 
   //get all dollarstore items
    app.get('/api/dollarstores', function(req, res) {

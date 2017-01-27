@@ -1,6 +1,3 @@
-// var dotenv = require('dotenv');
-// dotenv.load();
-
 var path = require('path');
 var http = require('http');
 var express = require('express');
@@ -13,8 +10,6 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var config = require('./config');
 
-
-// var postRouter=require('./models/postRouter');
 
 var hostname='172.31.5.17';
 // var hostname='localhost';
@@ -61,11 +56,6 @@ db.on('error',console.error.bind(console,'connection error:'));
 db.once('open',function(){
     console.log("Connected to Server");
 });
-
-
-
-//include Router to access data
-// app.use('*',postRouter);
 
 
 // catch 404 and forward to error handler

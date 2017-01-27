@@ -61,6 +61,10 @@ app.config(function($stateProvider,$urlRouterProvider){
             templateUrl:'verifiedMessage.html',
             controller:'verifyController',
       })
+      .state ('privacy', {
+            url:'/privacy',
+            templateUrl:'privacy.html',
 
+      })
 
 });
