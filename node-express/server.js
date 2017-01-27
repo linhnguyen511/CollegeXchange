@@ -35,10 +35,10 @@ app.use(cookieParser());
 
 // passport config
 var User = require('./models/userSchema');
-passport.use(User.createStrategy());
+// passport.use(User.createStrategy());
 app.use(passport.initialize());
-app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
+// app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -47,8 +47,9 @@ app.use(express.static(__dirname + '/../views'));
 app.use(express.static(__dirname + '/../public'));
 
 //routes
-require('./routes.js')(app);
 require('./userRoutes.js')(app);
+require('./routes.js')(app);
+
 
 
 //connect to Mongodb

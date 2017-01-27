@@ -55,12 +55,11 @@ app.config(function($stateProvider,$urlRouterProvider){
       .state ('emailverification', {
             url:'/emailverification',
             templateUrl:'emailVerification.html',
-
       })
-      .state ('privacy', {
-            url:'/privacy',
-            templateUrl:'privacy.html',
-
+      .state ('verify', {
+            url:'/verify/:token',
+            templateUrl:'verifiedMessage.html',
+            controller:'verifyController',
       })
 
 

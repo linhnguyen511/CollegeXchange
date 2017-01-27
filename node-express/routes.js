@@ -110,6 +110,8 @@ module.exports = function(app) {
 	});
 
 
+
+
 	// delete a post
 	// app.delete('/api/post/:post._id', function(req, res) {
 	// 	Posts.remove({
