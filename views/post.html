@@ -1,36 +1,51 @@
 <!-- template for post -->
 <div class="container">
-<p><i> ( * : required) </i></p>
-<form action="/api/createpost" method="post" enctype="multipart/form-data" id="uploadForm">
-  <div class="controls form-inline">
-      <label for="title">Posting Title*: &nbsp;&nbsp;</label><input class="form-control" style="width: 850px" type="text" id="title" name="title"> &nbsp;
-      <label for="price">Price*: &nbsp;&nbsp;</label>$<input class="form-control" style="width: 100px" type="text" id="price" name="price"></p>
-  </div>
-  <p> <b>Select file(s) to upload: </b></p>
-  <input type="file" name="userPhoto"/>
-  <br>
-  <label for="condition"> Condition*: </label>
-    <select name="condition">
-      <option value="">---Please select---</option> <!-- not selected / blank option -->
-      <option value="Like New">Like New</option>
-      <option value="Used - Like New">Used - Like New</option>
-      <option value="Used - Good">Used - Good</option>
-      <option value="Used - Acceptable">Used - Acceptable</option>
-    </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <div ng-controller="categoryCntrl">
-            <b>Category*: </b><select id="category" name="category" ng-model="subcategories" ng-options="category for (category,subcategory) in categories track by category" ><option value=''>Select</option></select>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b>Subcategory*: </b><select id="subcategory" name="subcategory" ng-disabled="!subcategories" ng-model="subcategory"><option value=''>Select</option> <option ng-repeat="subcategory in subcategories" value='{{subcategory}}'>{{subcategory}}</option></select>
+<!-- Show flash messages ----------->
+    <flash-message
+        duration="10000"
+        show-close="true"
+        on-dismiss="myCallback(flash);"></flash-message>
 
-  </div>
+    <p><i> ( * : required) </i></p>
+    <!-- Create form to submit ----------->
+    <form ng-submit="submitForm()" enctype="multipart/form-data">
+    <!-- <form action="/api/createpost" method="post" enctype="multipart/form-data" id="uploadForm"> -->
+      <div class="controls form-inline">
+          <label for="title">Posting Title*: &nbsp;&nbsp;</label><input class="form-control" style="width: 850px" type="text" id="title" name="title" ng-model='myForm.title'> &nbsp;
+          <label for="price">Price*: &nbsp;&nbsp;</label>$<input class="form-control" style="width: 100px" type="text" id="price" name="price" ng-model='myForm.price'></p>
+      </div>
+      <p> <b>Select image(s) to upload: </b></p>
+      <!-- Create image to upload using ng-file-upload ----------->
+      <input
+               type="file"
+               ngf-select
+               ng-model="myForm.userPhoto"
+               name="userPhoto"
+               ngf-pattern="'image/*'"
+               accept="image/*"
+               ngf-max-size="20MB"
+               />
+      <br>
+      <label for="condition"> Condition*: </label>
+        <select name="condition" ng-model='myForm.condition'>
+          <option value="">---Please select---</option> <!-- not selected / blank option -->
+          <option value="Like New">Like New</option>
+          <option value="Used - Like New">Used - Like New</option>
+          <option value="Used - Good">Used - Good</option>
+          <option value="Used - Acceptable">Used - Acceptable</option>
+        </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <!-- Binding data between category and subcategory ----------->
+      <div >
+                <b>Category*: </b><select id="category" name="category" ng-model="myForm.category" ng-options="cate as cate for (cate,subcategory) in categories track by cate" ><option value=''>Select</option></select>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b>Subcategory*: </b><select id="subcategory" name="subcategory" ng-disabled="!myForm.category" ng-model="myForm.subcategory"><option value=''>Select</option> <option ng-repeat="subcategory in categories[myForm.category]" value='{{subcategory}}'>{{subcategory}}</option></select>
 
-
-  <br>
-  <p><b>Posting body*:</b></p>
-  <textarea class="form-control" name="description" cols="100" rows="12"></textarea>
-  <br>
-
-  <input class="btn btn-primary" role="button" type="submit" value="Submit">
-</form>
+      </div>
+      <br>
+      <p><b>Posting body*:</b></p>
+      <textarea class="form-control" name="description" ng-model='myForm.description'cols="100" rows="12"></textarea>
+      <br>
+      <input class="btn btn-primary" role="button" type="submit" value="Submit">
+    </form>
 </div>

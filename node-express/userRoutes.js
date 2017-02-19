@@ -68,38 +68,42 @@ module.exports = function(app) {
 
 
   //User Login
-  app.post('/api/login', function(req, res, next) {
-
-      passport.authenticate('local', function(err, user, info) {
-          if (err) {
-            return next(err);
-          }
-
-          if (!user) {
-            return res.status(401).json({
-              err: info
-            });
-          }
-          // console.log("Enter here");
-          req.logIn(user, function(err) {
-              if (err) {
-                return res.status(500).json({
-                  err: 'Could not log in user'
-                });
-              }
-
-              var token = Verify.getToken(user);
-                      // res.status(200).json({
-                      //     status: 'Login successful!',
-                      //     success: true,
-                      //     token: token
-                      // });
-
-                      res.redirect('/');
-                      // req.flash('message', 'You have succesfully logged in!');
-          });
-      })(req,res,next);
-  });
+  // app.post('/api/login', function(req, res, next) {
+  //
+  //     passport.authenticate('local', function(err, user, info) {
+  //         if (err) {
+  //           return next(err);
+  //         }
+  //
+  //         if (!user) {
+  //           return res.status(401).json({
+  //             err: info
+  //           });
+  //         }
+  //         // console.log("Enter here");
+  //         req.logIn(user, function(err) {
+  //             if (err) {
+  //               return res.status(500).json({
+  //                 err: 'Could not log in user'
+  //               });
+  //             }
+  //
+  //             var token = Verify.getToken(user);
+  //                     // res.status(200).json({
+  //                     //     status: 'Login successful!',
+  //                     //     success: true,
+  //                     //     token: token
+  //                     // });
+  //
+  //                     res.header({
+  //                         'x-access-token': token
+  //                     });
+  //
+  //                     res.redirect('/');
+  //                     // req.flash('message', 'You have succesfully logged in!');
+  //         });
+  //     })(req,res,next);
+  // });
 
 
 

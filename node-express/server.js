@@ -7,6 +7,9 @@ var bodyParser = require ('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+var session = require('express-session');
+var cons = require('consolidate');
 
 var config = require('./config');
 
@@ -24,7 +27,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-// app.use(session());
+app.use(flash({ unsafe: true }));
+app.use(session({ cookie: { maxAge: 60000 },
+                  secret: 'iHateThisShit',
+                  resave: false,
+                  saveUninitialized: false}));
 // app.use(methodOverride());
 
 
@@ -36,6 +43,11 @@ app.use(passport.initialize());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// view engine setup
+app.engine('html', cons.swig)
+app.set('views', path.join(__dirname + '/../views'));
+app.set('view engine', 'html');
 
 //include static files to Express (all files to clients)
 app.use(express.static(__dirname + '/../views'));

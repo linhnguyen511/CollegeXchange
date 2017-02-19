@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('CollegeXchangeApp',['ui.router']);
+var app = angular.module('CollegeXchangeApp',['ui.router','ngFileUpload',"ngFlash"]);
 app.config(function($stateProvider,$urlRouterProvider){
       $urlRouterProvider.otherwise('/items');
 

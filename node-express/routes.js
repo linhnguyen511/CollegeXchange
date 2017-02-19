@@ -1,5 +1,6 @@
 var Posts = require('./models/postSchema');
 var multer = require ('multer');
+var flash = require('connect-flash');
 
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
@@ -83,20 +84,30 @@ module.exports = function(app) {
 
   // post new item to server
 	app.post('/api/createpost', function(req, res) {
+      console.log(req.files);
 		  upload(req, res, function(err) {
 				  if(err) {
-				    res.end('Upload fail');
+            // res.redirect('/#!/post')
+				    res.json('Oh snap! Files were not uploaded successfully. Try submitting again.',401);
 						throw err;
 						return;
-				  }
-          req.body.imagePath = req.file.filename;
+				  };
 
-					Posts.create(req.body, function(err,post){
+          if (req.file) {
+            req.body.imagePath = req.file.filename;
+          };
 
-									if (err) throw err;
-									var id= post._id;
-                  res.redirect('/');
-					});
+          Posts.create(req.body, function(err,post){
+                  if (err) {
+                      // req.flash('info', 'Hi there!');
+                      // res.redirect('/#!/post');
+                      res.json("Oh snap! Make sure to fill in all the required fields and try submitting again. Oh...and price should be a number", 401);
+                  }
+                  else {
+                    var id= post._id;
+                    res.json('Well done! Your post was submitted successfully');
+                  };
+          });
 		  });
 	});
 
@@ -122,6 +133,7 @@ module.exports = function(app) {
 
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
-		res.sendFile('../views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    res.render('index');
+    // res.sendFile('../views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 	});
 };

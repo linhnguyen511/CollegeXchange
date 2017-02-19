@@ -17,9 +17,17 @@
 </div>
 <br>
 
-<!-- template for sidebar -->
+
+<!-- Main content -------------------------------------->
 <div class="container" ng-controller="sideBarControllerButton">
   <div class ="row">
+
+    <!-- Show flash messages ----------->
+        <flash-message
+            duration="10000"
+            show-close="true"
+            on-dismiss="myCallback(flash);"></flash-message>
+    <!--Template for sidebar ----------->
      <div class = "col-sm-2">
           <br><br><br>
           <p> <b>Condition </b> </p>
