@@ -28,3 +28,18 @@
 .footer{ background-color: #fbfbfb;
   color: white
 }
+
+.caretbtn{
+  position: absolute;
+    top: 0px;
+    right: 15px;
+    /*z-index: 100;*/
+    background-color: #FFF;
+    padding: 5px 5px 5px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    line-height: 15px;
+    border-radius: 50%;
+}

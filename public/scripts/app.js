@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('CollegeXchangeApp',['ui.router','ngFileUpload',"ngFlash"]);
+var app = angular.module('CollegeXchangeApp',['ui.router','ngFileUpload',"ngFlash","xeditable"]);
 app.config(function($stateProvider,$urlRouterProvider){
       $urlRouterProvider.otherwise('/items');
 
@@ -35,6 +35,10 @@ app.config(function($stateProvider,$urlRouterProvider){
             url:'/post',
             templateUrl:'post.html',
             controller:'categoryCntrl'
+      })
+      .state ('deletepost', {
+            url:'/deletepost/:type',
+            controller:'delPostCtrl'
       })
       .state ('signup', {
             url:'/signup',

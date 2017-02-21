@@ -36,9 +36,9 @@
           <input type="checkbox" id="cb3" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Good'" ng-false-value=''> Used - Good <br>
           <input type="checkbox" id="cb4" ng-model="check" ng-change="change(check)" ng-true-value="'Used - Acceptable'" ng-false-value=''> Used - Acceptable <br>
           <br>
-          <p> <b>Price </b> </p>
+          <!-- <p> <b>Price </b> </p>
           <input style="width: 50px" type="text" placeholder="min"> &nbsp; <input style="width: 50px" type="text" placeholder="max"><br>
-          <br>
+          <br> -->
           <!-- <p> <b>Size (for apparel) </b> </p>
           <input type="checkbox" name="categories" value="X-Small"> X-Small <br>
           <input type="checkbox" name="categories" value="Small"> Small <br>
@@ -79,6 +79,15 @@
         <div class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in products">
                   <div class="thumbnail" >
+                    <div class='caretbtn'>
+                        <button type='button' class="dropdown pull-right"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href='#'> Edit </a></li>
+                                <li><a href='#!deletepost/{{product._id}}'> Delete </a></li>
+                                <li><a href='#'> Report </a></li>
+                              </ul>
+                        </button>
+                    </div>
                     <a href ="#!singleitem/{{product._id}}"><img src="uploads/{{product.imagePath}}" alt=""></a>
                     <div class="caption">
                       <p><a href="#!singleitem/{{product._id}}"> {{product.title}} </a></p>

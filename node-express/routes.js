@@ -112,24 +112,18 @@ module.exports = function(app) {
 	});
 
 
-
-
 	// delete a post
-	// app.delete('/api/post/:post._id', function(req, res) {
-	// 	Posts.remove({
-	// 		_id : req.params.todo_id
-	// 	}, function(err, post) {
-	// 		if (err)
-	// 			res.send(err);
-  //
-	// 		// get and return all the todos after you create another
-	// 		Posts.find(function(err, post) {
-	// 			if (err)
-	// 				res.send(err)
-	// 			res.json(post);
-	// 		});
-	// 	});
-	// });
+	app.delete('/api/deletepost', function(req, res) {
+		Posts.remove({
+			_id : req.query.type
+		}, function(err, post) {
+    			if (err){
+              res.json('Oops! Something went wrong. Please try again',401);
+          } else {
+             res.json('Your post was deleted successfully');
+          };
+    });
+	});
 
 	// application -------------------------------------------------------------
 	app.get('*', function(req, res) {
